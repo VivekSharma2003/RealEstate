@@ -1,0 +1,68 @@
+@import "../../responsive.scss";
+
+.listPage {
+  display: flex;
+  height: 100%;
+
+  .listContainer {
+    flex: 3;
+    height: 100%;
+
+    .wrapper {
+      height: 100%; 
+      padding-right: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding-bottom: 50px;
+
+      @include lg{
+        padding-right: 0px;
+        overflow-x: hidden;
+      }
+
+      scrollbar-width: thin;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &:hover {
+        scrollbar-width: thin;
+        -ms-overflow-style: auto;
+        &::-webkit-scrollbar {
+          display: block;
+        }
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(127, 143, 166, 0.8);
+        border-radius: 10px;
+        border: 3px solid #f1f2f6;
+      }
+
+      &::-webkit-scrollbar-button {
+        display: none;
+      }
+
+      transition: background-color 0.3s;
+    
+    }
+  }
+
+  .mapContainer {
+    flex: 2;
+    height: 100%;
+    background-color: #fcf5f3;
+
+    @include md{
+      display: none;
+    }
+  }
+}

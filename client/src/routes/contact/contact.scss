@@ -1,0 +1,231 @@
+@import "../../responsive.scss";
+
+.contactPage {
+  padding: 40px;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 300px;
+  padding-left: 200px;
+  padding-right: 200px;
+
+  @include lg{
+    padding-right: 15px;
+  }
+
+  //Scrollbar styling
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(254, 205, 81, 0.209) #fcf5f3;
+
+  .popup {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInOut 3s;
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 2.0rem;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 3px solid #fece51;
+      display: inline-block;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .section {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #444;
+        border-left: 4px solid #fece51;
+        padding-left: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      .formGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        label {
+          font-size: 1rem;
+          color: #444;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        input,
+        textarea {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+          width: 100%;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+          transition: border 0.3s ease;
+
+          &:focus {
+            border-color: #fece51;
+            outline: none;
+          }
+        }
+      }
+
+      button {
+        padding: 12px 24px;
+        background-color: #fece51;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        align-self: flex-start;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #e6b84b;
+        }
+      }
+    }
+  }
+
+  @include md {
+    padding: 20px;
+
+    .header {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .content {
+      gap: 20px;
+
+      .section {
+        padding: 20px;
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        p {
+          font-size: 0.7rem;
+        }
+      }
+
+      form {
+        padding: 20px;
+
+        .formGroup {
+          label {
+            font-size: 0.7rem;
+          }
+
+          input,
+          textarea {
+            font-size: 0.7rem;
+          }
+        }
+
+        button {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}

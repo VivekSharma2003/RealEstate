@@ -1,0 +1,179 @@
+@import "../../responsive.scss";
+
+$primary-color: #333;
+$secondary-color: #666;
+$background-color: #f9f9f9;
+$card-background: #fff;
+$highlight-color: #fece51;
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+.agentsPage {
+  padding: 50px 50px;
+  background-color: $background-color;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  //Scrollbar styling
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(254, 205, 81, 0.209) #fcf5f3;
+
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: $primary-color;
+      border-bottom: 2px solid $highlight-color;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+  }
+
+  .agentCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    text-align: center;
+
+    .agentImage {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid $highlight-color;
+      transition: transform 0.3s ease;
+    }
+
+    .agentImage:hover {
+      transform: scale(1.1);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: $primary-color;
+    }
+  }
+
+  .properties {
+    padding-bottom: 40px;
+
+    h2 {
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin-bottom: 20px;
+      border-bottom: 2px solid $highlight-color;
+      display: inline-block;
+      margin-left: 36%;
+    }
+
+    .propertyList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .propertyCard {
+      background-color: $card-background;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
+      width: 300px;
+      text-align: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      .propertyImage {
+        width: 100%;
+        height: 200px;
+        border-radius: 8px;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+
+      .propertyInfo {
+        h3 {
+          font-size: 1.5rem;
+          color: $primary-color;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 1rem;
+          color: $secondary-color;
+          margin-bottom: 5px;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  @include md {
+    .header {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .agentCard {
+      .agentImage {
+        width: 120px;
+        height: 120px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .properties {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .propertyCard {
+        width: 100%;
+        .propertyImage {
+          height: 150px;
+        }
+
+        .propertyInfo {
+          h3 {
+            font-size: 1.2rem;
+          }
+
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
