@@ -18,7 +18,7 @@ nav {
     }
   }
 
-  a:not(.logo):not(.register_button) {
+  a:not(.logo):not(.register_button):not(.profile) {
     position: relative;  
 
     &::after {
