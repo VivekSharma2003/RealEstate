@@ -3,6 +3,7 @@ import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from 'sonner';
 
 function Login() {
 
@@ -32,7 +33,10 @@ function Login() {
       
       navigate("/");
     } catch (err) {
-      setError(err.response.data.message);
+      const message =
+        err?.response?.data?.message ||
+        "Something went wrong. Please try again.";
+      toast.error(message);
     } finally{
       setIsLoading(false);
     }

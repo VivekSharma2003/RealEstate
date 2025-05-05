@@ -17,10 +17,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
-    "react-quill": "^0.0.2",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^6.24.1",
     "sass": "^1.77.6",
     "socket.io-client": "^4.7.5",
+    "sonner": "^2.0.3",
     "timeago.js": "^4.0.2",
     "zustand": "^4.5.4"
   },
@@ -32,6 +33,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.1.4"
+    "vite": "^6.3.4"
   }
 }

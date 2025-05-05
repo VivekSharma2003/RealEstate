@@ -14,3 +14,20 @@ body{
     overflow: hidden;
 }
 
+$slate-200: #f1f5f9;
+$focus-border: #000;
+
+input,
+select,
+textarea {
+  background-color: white;      
+  border: 1px solid $slate-200;  
+  border-radius: 2px;           
+  padding: 0.5rem;
+  transition: border-color 150ms ease-in-out;
+
+  &:focus {
+    outline: none;
+    border-color: $focus-border !important; 
+  }
+}

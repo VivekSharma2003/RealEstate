@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 function HomePage() {
 
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   // console.log(currentUser);
 
@@ -15,10 +15,10 @@ function HomePage() {
         <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-            explicabo suscipit cum eius, iure est nulla animi consequatur
-            facilis id pariatur fugit quos laudantium temporibus dolor ea
-            repellat provident impedit!
+            Discover your ideal home with intuitive map searches, personalized
+            alerts, and real agent support. Browse verified listings in vibrant
+            neighborhoods, explore modern amenities, clear pricing, and receive
+            seamless closing assistance.
           </p>
           <SearchBar />
           <div className="boxes">

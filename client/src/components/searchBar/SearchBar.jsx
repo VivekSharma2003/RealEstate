@@ -37,7 +37,7 @@ function SearchBar() {
         <input
           type="text"
           name="city"
-          placeholder="City"
+          placeholder="City (e.g. London)"
           onChange={handleChange}
         />
         <input

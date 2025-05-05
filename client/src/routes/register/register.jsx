@@ -3,6 +3,7 @@ import "./register.scss";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
+import { toast } from "sonner";
 
 function Register() {
 
@@ -30,7 +31,9 @@ function Register() {
       
       navigate("/login");
     } catch (err) {
-      setError(err.response.data.message);
+      const message =
+        err?.response?.data?.message || "Something went wrong. Please try again.";
+      toast.error(message);
     }finally{
       setIsLoading(false);
     }

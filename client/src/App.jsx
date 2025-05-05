@@ -12,6 +12,7 @@ import Agents from "./routes/agents/agents";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import NewPostPage from "./routes/newPostPage/newPostPage";
 import { listPageLoader, profilePageLoader, singlePageLoader } from "./lib/loaders";
+import { Toaster } from 'sonner';
 
 function App() {
 
@@ -79,7 +80,12 @@ function App() {
     
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+        <>
+          <Toaster />
+          <RouterProvider router={router} />
+        </>
+    );
 }
 
 export default App
