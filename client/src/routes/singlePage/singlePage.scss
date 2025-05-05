@@ -14,7 +14,7 @@
     flex: 3;
     height: 100%;
     overflow-y: auto;
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
 
     @include md{
         flex: none;
@@ -95,6 +95,14 @@
               height: 50px;
               border-radius: 50%;
               object-fit: cover;
+            }
+
+            span {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: inline-block;  
+              max-width: 100%;       
             }
           }
         }
