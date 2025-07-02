@@ -12,6 +12,7 @@ function SinglePage() {
   const [saved, setSaved] = useState(post.isSaved);
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const isOwner = currentUser && currentUser.id === post.userId;
 
   const handleSave = async () => {
     if (!currentUser) {
@@ -27,14 +28,16 @@ function SinglePage() {
     }
   };
 
-  const handleSendMessage =async ()=>{
+  const handleSendMessage = async () => {
     try {
-      await apiRequest.post("/chats",{receiverId : post.userId})
-       navigate("/profile")
-    } catch (error) {
-      console.log(error);
+      const { data: chat } = await apiRequest.post("/chats", {
+        receiverId: post.userId,
+      });
+      navigate("/profile", { state: { openChatId: chat.id } });
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   return (
     <div className="singlePage">
@@ -56,7 +59,7 @@ function SinglePage() {
                 <span>{post.user.username}</span>
               </div>
             </div>
-            <div className="bottom" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(post.postDetail.desc)}}></div>
+            <div className="bottom" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.postDetail.desc) }}></div>
           </div>
         </div>
       </div>
@@ -116,8 +119,8 @@ function SinglePage() {
               <div className="featureText">
                 <span>School</span>
                 <p>{post.postDetail.school > 999
-                    ? post.postDetail.school / 1000 + "km"
-                    : post.postDetail.school + "m"}{" "}
+                  ? post.postDetail.school / 1000 + "km"
+                  : post.postDetail.school + "m"}{" "}
                   away</p>
               </div>
             </div>
@@ -141,18 +144,24 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button onClick={handleSendMessage}>
+            <button
+              onClick={handleSendMessage}
+              disabled={isOwner}
+              style={{
+                cursor: isOwner ? "not-allowed" : "pointer",
+              }}
+            >
               <img src="/chat.png" alt="" />
               Send a Message
             </button>
             <button
-               onClick={handleSave}
-               style={{
+              onClick={handleSave}
+              style={{
                 backgroundColor: saved ? "#fece51" : "white",
-               }}
+              }}
             >
-              <img src="/save.png" alt=""/>
-              {saved ? "Place Saved": "Save the Place"}
+              <img src="/save.png" alt="" />
+              {saved ? "Place Saved" : "Save the Place"}
             </button>
           </div>
         </div>
