@@ -1,4 +1,4 @@
-import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Await, Link, useLoaderData, useNavigate, useLocation } from "react-router-dom";
 import { FaUser, FaEnvelope } from "react-icons/fa";
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
@@ -11,6 +11,8 @@ function ProfilePage() {
   const data = useLoaderData();
   const { updateUser, currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { state } = useLocation();  
+  const openChatId = state?.openChatId; 
 
   const handleLogout = async () => {
     try {
@@ -101,7 +103,7 @@ function ProfilePage() {
               resolve={data.chatResponse}
               errorElement={<p>Error loading chats!</p>}
             >
-              {(chatResponse) => <Chat chats={chatResponse.data} />}
+              {(chatResponse) => <Chat chats={chatResponse.data} initialChatId={openChatId}/>}
             </Await>
           </Suspense>
         </div>

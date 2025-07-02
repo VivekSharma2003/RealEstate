@@ -22,7 +22,6 @@
         margin-bottom: 50px;
     }
 
-    // Scrollbar styling
     &::-webkit-scrollbar {
       width: 8px;
     }
@@ -238,6 +237,11 @@
           border: 1px solid fece51;
           border-radius: 5px;
           cursor: pointer;
+
+          &:disabled {
+            opacity: 1 !important;
+            filter: none !important;
+          }
 
           img {
             width: 16px;

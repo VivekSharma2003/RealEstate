@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: realestate-api          
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start
+    envVars:
+      - key: DATABASE_URL
+        fromService: DATABASE_URL
+      - key: JWT_SECRET_KEY
+        fromService: JWT_SECRET_KEY
+      - key: CLIENT_URL
+        fromService: CLIENT_URL
+
+cron:
+  - name: keep-alive
+    schedule: "*/10 * * * *"        
+    command: "curl -fs $URL || true"
+    envVars:
+      - key: URL
+        value: "https://realestate-o10e.onrender.com/health"
